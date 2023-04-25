@@ -1,0 +1,15 @@
+public class ListaConta0424 {
+    
+    
+    @AuraEnabled
+    
+    public static List<Account> getAccount() {
+        
+         List<Account> accounts =
+                [SELECT Name, Rating, negociacao__c FROM Account
+                 WHERE Rating = 'Hot'  ORDER BY Name LIMIT 5 ];
+        
+        return accounts;
+    }
+
+}
