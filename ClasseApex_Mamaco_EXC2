@@ -1,0 +1,13 @@
+public with sharing class ControllerMamaco {
+
+    @AuraEnabled
+    
+    public static List<Account> getAccounts() {
+        
+         List<Account> accounts =
+                [SELECT Name FROM Account ORDER BY Name LIMIT 4 ];
+        
+        return accounts;
+    }
+
+}
