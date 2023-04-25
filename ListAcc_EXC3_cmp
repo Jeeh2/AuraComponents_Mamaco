@@ -1,0 +1,20 @@
+<aura:component controller="ListaConta0424" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <!--quem vai operar e que irá receber uma lista-->
+    <aura:attribute name="contas" type="Account[]"></aura:attribute>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:card iconName="standard:account" title="contas em negociação"/>
+    
+    <div class='slds-p-arround_medium'>
+     <div class='slds-box slds-theme_default'>
+        <aura:iteration items="{!v.contas}" var="account">
+            <p>---------------------</p>
+            <p>{!account.Name}</p>
+            <p>{!account.Rating}</p>
+            <p>{!account.negociacao__c}</p>
+
+        </aura:iteration>
+         </div>
+    </div>
+</aura:component>
