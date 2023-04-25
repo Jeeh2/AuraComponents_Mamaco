@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	 <aura:attribute name="account" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> <!-- manipulador de evento INIT que chama método doInit quando o componente é iniciado -->
+    
+    <lightning:card title="Novo Lead">
+        <!--onsucess é quando o meu lead for inserido com sucesso-->
+      <lightning:recordEditForm objectApiName="Lead" onsuccess="{!c.handleSuccess}"> <!-- cria o formulário -->
+            <lightning:messages /> <!-- exibe mensagens de erro/sucesso -->
+            <lightning:inputField fieldName="Name" />
+            <lightning:inputField fieldName="Company" />
+            <lightning:inputField fieldName="Status" />
+            <lightning:button class="btn" variant="brand" type="submit" label="Salvar" />
+      </lightning:recordEditForm>
+    </lightning:card>
+</aura:component>
