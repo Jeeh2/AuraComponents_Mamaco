@@ -1,0 +1,14 @@
+public class ControllerListaCompras {
+    
+    @AuraEnabled
+    
+    public static List<ComprasInternas__c> getComprasInternas() {
+        
+         List<ComprasInternas__c> compras =
+                [SELECT Name, Nome_do_Produto__c, PrecoTotal__c, PrecoUnitario__c, DataCompra__c
+                 FROM ComprasInternas__c ORDER BY Name LIMIT 4 ];
+        
+        return compras;
+    }
+
+}
