@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="ControllerListaCompras">
+	<aura:attribute name="mylist"     Type="Object"/>
+    <aura:attribute name="mycolumns"  Type="List"/>
+  
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <lightning:card title="Lista de Compras para escritório">
+        <lightning:recordEditForm objectApiName="ComprasInternas__c" onsuccess="{!c.handleSuccess}"> <!-- cria o formulário -->
+            <lightning:messages /> <!-- exibe mensagens de erro/sucesso -->
+            <lightning:inputField fieldName="Name" />
+            <lightning:inputField fieldName="Nome_do_Produto__c" aura:id="field"/>
+            <lightning:inputField fieldName="DataCompra__c" aura:id="field"/>
+            <lightning:inputField fieldName="PrecoTotal__c" aura:id="field"/>
+            <lightning:inputField fieldName="PrecoUnitario__c" aura:id="field"/>
+            <lightning:button class="btn" variant="brand" type="submit" label="Salvar" />
+      </lightning:recordEditForm>
+        
+    <lightning:datatable data="{! v.mylist }"
+                          columns="{! v.mycolumns }"
+                          keyField="Id"
+                          hideCheckboxColumn="False"/>
+    </lightning:card>
+</aura:component>
